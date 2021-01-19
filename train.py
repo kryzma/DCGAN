@@ -54,9 +54,9 @@ def train(config):
 			gen.zero_grad()
 			loss_gen.backward()
 			opt_gen.step()
-			print("batch_idx = " + str(batch_idx))
+
+			# Save current results
 			if batch_idx % config['result_period'] == 0:
-				print("saving results")
 				utils.save_generated_imgs(
 					gen, fixed_noise, batch_idx//config['result_period']*(epoch+1), config)
 
